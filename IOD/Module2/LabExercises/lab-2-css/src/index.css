@@ -1,0 +1,138 @@
+/* I. Selectors */
+/* Put styles for questions 1.1, 1.2, 1.3 and 1.4 here */
+
+article {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}
+.style-me1 {
+  color: red;
+}
+#style-me2 {
+  color: blue;
+}
+p.style-me1#style-me2 {
+  color: purple;
+}
+
+/* Put styles for questions 2.1 and 2.2 here */
+
+.my-descendants-are-styled p {
+  background-color: red;
+}
+
+.my-children-are-styled > p {
+  background-color: lightgreen;
+}
+
+/* II. Box model and common properties */
+/* Put styles for questions 1-8 here */
+
+.box {
+  background-color: aqua;
+  margin: 5px;
+  padding: 15%;
+  height: 50px !important;
+  width: 50px;
+  /* resizing the browser adjusts the height and weight according to the css set */
+  border: 10px solid black;
+  box-sizing: content-box; /* When I did border-box, the height and width decreased and the contents spilled outside the box */
+  overflow: auto; /* Even after chosing auto, the first and last circle show the scroll bars. I can't get them to disappear. */
+  outline: 10px solid red;
+  border-radius: 50%;
+  background-image: url(../assets/images/img1.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#container {
+  /* For 1.2, I tried to add flex properties to the outer box. */
+  display: flex;
+  align-items: flex-start;
+}
+
+/* III. Positioning */
+/* Put styles for questions 1-3 here */
+
+.position-absolute {
+  position: absolute;
+  top: 0;
+  background-color: beige;
+}
+
+.position-relative {
+  /* Absolute and relative both are moving together here */
+  position: relative;
+  left: 10%;
+  right: 50px;
+  background-color: bisque;
+}
+
+.position-sticky {
+  position: sticky;
+  top: 50%;
+  /* bottom: 20%; */
+  background-color: rgb(231, 172, 84);
+}
+
+/* IV. Styling text */
+/* Put styles for questions 1-10 here */
+
+.text-style {
+  color: purple;
+  font-family: "Momo Signature", sans-serif;
+  font-size: xx-large;
+  line-height: 2in;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 2px;
+  word-spacing: 4cm;
+  text-transform: uppercase;
+  text-decoration: line-through;
+}
+
+/* V. Styling links */
+/* Put styles for questions 1-3 here */
+
+a,
+a:link {
+  color: tomato;
+  font-size: large;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: brown;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  font-style: italic; /* font-style didn't work because of the limitations */
+}
+/* VI. calc() */
+/* Put styles for questions 1-3 here */
+
+.calc-style {
+  width: 100vw;
+  background-color: blue;
+  color: aliceblue;
+  width: calc(100vw - 100px);
+}
+
+.calc-row {
+  display: inline;
+}
+
+.fixed-width-col {
+  width: 350px;
+  display: inline-block;
+}
+
+.fluid-col {
+  display: inline-block;
+  width: calc(100% - 450px);
+}

@@ -1,0 +1,64 @@
+/* Please tell me if I could have merged any styling and made this css file smaller and better looking */
+/* It took me 5 hours to make this website. I hope you like it. */
+/* I have attached my word doc resume as well so you can see how similar it looks */
+
+.margin-10 {
+  margin: 10px;
+}
+
+.margin-top {
+  margin-top: -20px;
+}
+
+h4 {
+  color: rgb(117, 188, 204);
+}
+
+.container {
+  display: flex;
+}
+
+.left-space,
+.right-space {
+  width: 350px;
+  background-color: gray;
+}
+
+.middle-space {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 900px;
+}
+
+/* top of the page */
+header h1 {
+  background-color: rgb(153, 209, 222);
+  color: white;
+  text-transform: uppercase;
+  height: 1.1cm;
+  font-weight: lighter;
+  font-size: 2rem;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+/* second block */
+header h4 {
+  background-color: rgb(196, 218, 247);
+  padding: 10px 50px;
+  font-style: italic;
+}
+
+.column-one {
+  background-color: #eeece1;
+  padding-left: 5px;
+}
+
+.text-before::before {
+  content: "\27A2";
+  margin-left: -20px;
+}
+
+span {
+  font-weight: bold;
+}
