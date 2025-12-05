@@ -13,6 +13,7 @@ counter1(); // 2
 // a)
 let counter2 = makeCounter();
 counter2();
+counter2(); // Yes this is independant of counter 1
 
 // b) and c)
 function makeCounter2(startFrom, incrementBy) {

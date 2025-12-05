@@ -25,9 +25,9 @@ setTimeout(() => car2.description(), 200); // this uses the new values from b be
 
 // d)
 
-setTimeout(car2.description.bind(car2), 2000);
+setTimeout(car2.description.bind(car2), 200);
 
 // e)
 
 let car3 = { ...car, model: 718 };
-setTimeout(car3.description.bind(car3), 2000);
+setTimeout(car3.description.bind(car3), 200);

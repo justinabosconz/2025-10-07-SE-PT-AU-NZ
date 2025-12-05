@@ -1,4 +1,6 @@
-// function multiply(a, b) {console.log(a * b);}
+// function multiply(a, b) {
+//   console.log(a * b);
+// }
 
 Function.prototype.delay = function (ms) {
   let originalFunction = this;

@@ -2,16 +2,16 @@ function printMe() {
   console.log("printing debounced message");
 }
 
-function debounce(func, ms) {
-  let timeout;
+function debounce(func, ms = 1000) {
+  let timeoutId;
   return function (...args) {
-    const later = function () {
-      timeout = null;
-      func.apply(this, args);
-    };
-    clearTimeout(timeout);
-
-    timeout = setTimeout(later, ms);
+    const context = this;
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(() => {
+      func.apply(context, args);
+    }, ms);
   };
 }
 
