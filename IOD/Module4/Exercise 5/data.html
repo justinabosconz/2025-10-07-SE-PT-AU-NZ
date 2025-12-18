@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic cards</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>WION NEWS LOADING!!!</h1>
+
+    <template id="news-template">
+      <div class="card col-8" style="width: 18rem; margin: 10px">
+        <div class="card-body">
+          <h5 class="card-title">Car title</h5>
+          <p class="card-text">Car text.</p>
+        </div>
+      </div>
+    </template>
+    <div id="news-list" class="row"></div>
+
+    <h2>Enter new news item below!</h2>
+
+    <form id="formEntry">
+      <label for="titleInput">Title:</label><br />
+      <input type="text" id="titleInput" name="title" required /><br />
+      <label for="contentInput">Content:</label><br />
+      <input
+        type="text"
+        id="contentInput"
+        name="content"
+        required
+      /><br /><br />
+      <button
+        class="btn btn-success"
+        onclick="addNews()"
+        type="submit"
+        value="Add News Item"
+      >
+        Submit
+      </button>
+    </form>
+  </body>
+
+  <script>
+    let newsData = [
+      {
+        id: 1,
+        title: "Election Results",
+        content: "Newly elected minister...",
+      },
+      { id: 2, title: "Sporting Success", content: "World Cup winners..." },
+      {
+        id: 3,
+        title: "Tornado Warning",
+        content: "Residents should prepare...",
+      },
+    ];
+
+    function addCard(cardHeading, cardContent) {
+      const template = document
+        .getElementById("news-template")
+        .content.cloneNode(true);
+      template.querySelector(".card-title").innerText = cardHeading;
+      template.querySelector(".card-text").innerText = cardContent;
+      document.querySelector("#news-list").appendChild(template);
+    }
+
+    newsData.forEach((item) =>
+      setTimeout(() => addCard(item.title, item.content), 5000)
+    );
+
+    function GetFormData(id, title, content) {
+      this.id = id;
+      this.title = title;
+      this.content = content;
+    }
+
+    function addNews() {
+      let x = new GetFormData(
+        newsData.length + 1,
+        document.getElementById("titleInput").value,
+        document.getElementById("contentInput").value
+      );
+      newsData.push(x);
+      setTimeout(() => addCard(x.title, x.content), 5000);
+    }
+
+    document
+      .getElementById("formEntry")
+      .addEventListener("submit", (e) => e.preventDefault());
+  </script>
+</html>

@@ -19,3 +19,5 @@ function Sum() {
 }
 
 console.log(courseName);
+
+

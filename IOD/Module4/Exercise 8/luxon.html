@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxon!!</title>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.7.2/build/global/luxon.min.js"></script>
+    <style>
+      p {
+        font-size: larger;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Luxon Date</h2>
+    <!-- container for Luxon output -->
+    <div id="1">1</div>
+    <div id="2">2</div>
+    <div id="3">3</div>
+    <div id="4">4</div>
+    <div id="5">5</div>
+    <script type="text/javascript">
+      const DateTime = luxon.DateTime;
+      let nowLuxon = DateTime.now();
+
+      // answer 1 and 2
+
+      (function () {
+        let start = DateTime.fromISO("1986-10-07");
+        let answer1 = nowLuxon.diff(start, ["days"]).toObject();
+        document.getElementById(
+          "1"
+        ).innerHTML = `<p>1. The number of days between my birthday and the current date is ${Math.floor(
+          answer1.days
+        )} days.</p>`;
+        let answer2 = nowLuxon
+          .diff(start, ["years", "months", "days"])
+          .toObject();
+        document.getElementById(
+          "2"
+        ).innerHTML = `<p>2. The difference between my birthday and the current date is ${Math.floor(
+          answer2.years
+        )} years, ${Math.floor(answer2.months)} months, and ${Math.floor(
+          answer2.days
+        )} days.</p>`;
+      })();
+
+      // answer 3
+
+      (function () {
+        inputDate1 = "2017-04-30";
+        inputDate2 = "2017-04-01";
+        let d1 = DateTime.fromISO(inputDate1);
+        let d2 = DateTime.fromISO(inputDate2);
+
+        let d1Diff = nowLuxon.diff(d1, ["days"]).toObject();
+        let d2Diff = nowLuxon.diff(d2, ["days"]).toObject();
+        let answer3 = (function () {
+          if (d1Diff.days < d2Diff.days) return inputDate1 + " is closer.";
+          else return inputDate2 + " is closer.";
+        })();
+        document.getElementById("3").innerHTML = `<p>3. ${answer3}</p>`;
+      })();
+
+      // answer 4
+
+      (function () {
+        inputDate1 = "2017-04-01";
+        inputDate2 = "2017-04-30";
+        let d1 = DateTime.fromISO(inputDate1);
+        let d2 = DateTime.fromISO(inputDate2);
+        let d1Diff = nowLuxon.diff(d1, ["days"]).toObject();
+        let d2Diff = nowLuxon.diff(d2, ["days"]).toObject();
+        let answer4 = (function () {
+          if (d1Diff.days > d2Diff.days)
+            return inputDate1 + " is before " + inputDate2;
+          else return inputDate2 + " is before " + inputDate1;
+        })();
+        document.getElementById("4").innerHTML = `<p>4. ${answer4}</p>`;
+      })();
+
+      // answer 5
+
+      (function () {
+        const DateTime = luxon.DateTime;
+        let nowLuxon = DateTime.utc();
+        let answer5 = nowLuxon.toLocaleString(DateTime.DATETIME_FULL);
+        document.getElementById(
+          "5"
+        ).innerHTML = `<p>5. The current time in London is ${answer5}</p>`;
+      })();
+    </script>
+  </body>
+</html>

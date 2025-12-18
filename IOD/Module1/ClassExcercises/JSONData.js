@@ -15,3 +15,6 @@ userData.followers = 1200;
 
 console.log(userData.followers);
 console.log(userData);
+
+const sentence = "The quick brown fox jumps over the lazy dog.";
+console.log(sentence.split(""));
