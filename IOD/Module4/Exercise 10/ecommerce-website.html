@@ -26,12 +26,12 @@
     </h3>
 
     <!-- Dropdown -->
-    <select id="categories">
-      <option>Show all Categories</option>
-      <option>Men's Clothing</option>
-      <option>Women's Clothing</option>
-      <option>Jewelery</option>
-      <option>Electronics</option>
+    <select onchange="" id="categories">
+      <option value="show all categories">Show all Categories</option>
+      <option value="men's clothing">Men's Clothing</option>
+      <option value="women's clothing">Women's Clothing</option>
+      <option value="jewelery">Jewelery</option>
+      <option value="electronics">Electronics</option>
     </select>
 
     <!-- card template -->
@@ -40,7 +40,7 @@
         class="card col-lg-3 col-md-6 col-sm-12"
         style="width: 18rem; margin: 2rem"
       >
-        <div class="card-body">
+        <div class="card-body overflow-auto">
           <div class="card-heading text-info"></div>
           <div class="card-picture"></div>
           <div class="card-price bg-info w-100"></div>
@@ -57,28 +57,46 @@
 
     <!-- script -->
     <script>
-      let sel = document.getElementById("categories").value.toLowerCase();
+      let allProducts = []; // Store data globally to filter without re-fetching
 
+      // 1. Fetch data and store it
       fetch("https://fakestoreapi.com/products")
         .then((response) => response.json())
         .then((json) => {
-          // after multiple attempts, I cannot make this work
-
-          // let filteredJson;
-          // sel !== "Show all Categories"
-          //   ? (filteredJson = json.filter((product) => product.category == sel))
-          //   : (filteredJson = json);
-          // filteredJson
-          json.forEach((item) => {
-            addCard(
-              item.title,
-              item.image,
-              item.price,
-              item.category,
-              item.description
-            );
-          });
+          allProducts = json;
+          renderCards(allProducts); // Initial render
         });
+
+      // 2. Add event listener to the dropdown
+      document.getElementById("categories").addEventListener("change", (e) => {
+        const selectedCategory = e.target.value.toLowerCase();
+
+        // Filter logic
+        const filteredProducts =
+          selectedCategory === "show all categories"
+            ? allProducts
+            : allProducts.filter(
+                (product) => product.category === selectedCategory
+              );
+
+        renderCards(filteredProducts);
+      });
+
+      // 3. Function to clear and rebuild the list
+      function renderCards(products) {
+        const list = document.getElementById("card-list");
+        list.innerHTML = ""; // Clear existing cards
+
+        products.forEach((item) => {
+          addCard(
+            item.title,
+            item.image,
+            item.price,
+            item.category,
+            item.description
+          );
+        });
+      }
 
       function addCard(
         cardTitle,
@@ -93,7 +111,7 @@
         template.querySelector(".card-heading").innerText = cardTitle;
         template.querySelector(
           ".card-picture"
-        ).innerHTML = `<img src=${cardPicture} class="px-2" alt="cannot display" width="100" height="100" />`;
+        ).innerHTML = `<img src="${cardPicture}" class="px-2" alt="product" width="100" height="100" />`;
         template.querySelector(".card-price").innerText = "$" + cardPrice;
         template.querySelector(".card-category").innerText =
           cardCategory.toUpperCase();
