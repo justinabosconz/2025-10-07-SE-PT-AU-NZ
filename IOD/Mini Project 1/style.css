@@ -1,0 +1,16 @@
+body {
+  background-image: url(BG_image.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.card:hover {
+  transform: scale(1.15);
+  transition: all 0.3s;
+  opacity: 1;
+}
+.card {
+  opacity: 0.8;
+}

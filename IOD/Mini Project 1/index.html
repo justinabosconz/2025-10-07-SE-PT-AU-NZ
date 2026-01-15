@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Project 1</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      async
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="px-2">
+    <!--Navigation-->
+    <div class="navbar navbar-dark bg-primary sticky-top">
+      <h3>Makeup product selector!!</h3>
+      <select onchange="" id="brands">
+        <option value="show all brands">Show all Brands</option>
+        <option value="almay">Almay</option>
+        <option value="alva">Alva</option>
+        <option value="annabelle">Annabelle</option>
+        <option value="benefit">Benefit</option>
+        <option value="boosh">Boosh</option>
+        <option value="clinique">Clinique</option>
+        <option value="colourpop">Colourpop</option>
+        <option value="covergirl">Covergirl</option>
+        <option value="dalish">Dalish</option>
+        <option value="deciem">Deciem</option>
+        <option value="dior">Dior</option>
+        <option value="essie">Essie</option>
+        <option value="fenty">Fenty</option>
+        <option value="glossier">Glossier</option>
+        <option value="iman">Iman</option>
+        <option value="marcelle">Marcelle</option>
+        <option value="marienatie">Marienatie</option>
+        <option value="maybelline">Maybelline</option>
+        <option value="milani">Milani</option>
+        <option value="misa">Misa</option>
+        <option value="mistura">Mistura</option>
+        <option value="moov">Moov</option>
+        <option value="nudus">Nudus</option>
+        <option value="nyx">Nyx</option>
+        <option value="orly">Orly</option>
+        <option value="pacifica">Pacifica</option>
+        <option value="revlon">Revlon</option>
+        <option value="sante">Sante</option>
+        <option value="smashbox">Smashbox</option>
+        <option value="stila">Stila</option>
+        <option value="suncoat">Suncoat</option>
+        <option value="w3llpeople">W3llpeople</option>
+        <option value="zorah">Zorah</option>
+      </select>
+    </div>
+
+    <!-- card template -->
+    <template id="card-template">
+      <div
+        class="card border border-dark rounded col-lg-4 col-md-6 col-sm-12"
+        style="width: 16rem; margin: 2rem"
+      >
+        <div class="card-body mx-auto fw-bold">
+          <div class="upper-body" style="height: 180px">
+            <div class="card-brand text-capitalize"></div>
+            <div class="card-name"></div>
+            <div class="card-price"></div>
+            <div class="card-currency"></div>
+            <div class="card-product text-capitalize"></div>
+          </div>
+          <div class="card-image" style="height: 210px"></div>
+          <a class="card-product-link" href="">Product Link</a>
+          <a class="card-website-link" href="">Website Link</a>
+        </div>
+      </div>
+    </template>
+
+    <!-- div container -->
+    <div class="container">
+      <div id="card-list" class="row"></div>
+    </div>
+  </body>
+</html>
