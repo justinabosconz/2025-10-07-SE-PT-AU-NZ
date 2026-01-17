@@ -4,17 +4,17 @@ const app = require("./app");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDoc = require("./swagger.json");
 
-const appRouter = require("./routes/appRoutes"); // importing router
-const secondAppRouter = require("./routes/secondAppRoutes"); // importing second router
-const thirdAppRouter = require("./routes/thirdAppRoutes"); // importing third router
-// const calculatorRouter = require("./routes/calculatorRoutes"); // moved to app.js
-
 const cors = require("cors");
-const friendsRouter = require("./routes/friendsRoutes"); // importing friends router
 
 // const app = express(); // moved to app.js
 const app2 = express(); // web server for port 2
 const app3 = express(); // web server for port 3
+
+const appRouter = require("./routes/appRoutes"); // importing router
+const secondAppRouter = require("./routes/secondAppRoutes"); // importing second router
+const thirdAppRouter = require("./routes/thirdAppRoutes"); // importing third router
+// const calculatorRouter = require("./routes/calculatorRoutes"); // moved to app.js
+const friendsRouter = require("./routes/friendsRoutes"); // importing friends router
 
 const port = 3000; // first port
 const port2 = 3001; // second port

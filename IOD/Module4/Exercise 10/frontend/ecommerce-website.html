@@ -60,7 +60,7 @@
       let allProducts = []; // Store data globally to filter without re-fetching
 
       // 1. Fetch data and store it
-      fetch("https://fakestoreapi.com/products")
+      fetch("http://127.0.0.1:8888/E-commerce")
         .then((response) => response.json())
         .then((json) => {
           allProducts = json;
