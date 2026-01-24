@@ -40,3 +40,38 @@
 .read-the-docs {
   color: #888;
 }
+
+.componentBox {
+  border: 2px solid gray;
+  text-align: left;
+  width: 300px;
+  border-radius: 15px;
+  font-family: cursive;
+  padding: 1em;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+  margin-left: 100px;
+  margin-top: -10px;
+  font-size: 5em;
+}
+
+.flex-container {
+  display: flex; /* Activates Flexbox */
+  align-items: flex-start; /* Keeps buttons at the top */
+  gap: 40px; /* Adds space between list and buttons */
+}
+
+.button-controls {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px; /* Space between buttons */
+  padding-top: 16px; /* Align vertically with the list top */
+}
+
+button {
+  background-color: blue;
+  margin-left: 5px;
+}
