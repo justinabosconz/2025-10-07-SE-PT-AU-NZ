@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import AppBar from "@mui/material/AppBar"; // Example with Material-UI
+import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -10,12 +10,10 @@ const AppBarComponent = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        {/* Site Title - Can also be a NavLink to the home page */}
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           My App Bar
         </Typography>
 
-        {/* Navigation Links using NavLink */}
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <Button
             color="inherit"
