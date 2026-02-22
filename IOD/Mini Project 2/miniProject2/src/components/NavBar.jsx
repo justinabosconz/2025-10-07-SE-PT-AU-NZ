@@ -8,6 +8,9 @@ function NavBar() {
         <Link to="/">Movie App</Link>
       </div>
       <div className="navbar-links">
+        <Link to="/LoginForm" className="nav-link">
+          Log in
+        </Link>
         <Link to="/" className="nav-link">
           Home
         </Link>
