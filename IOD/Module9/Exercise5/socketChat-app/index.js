@@ -12,10 +12,10 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  // Notify everyone when a user joins
+  // user joins
   io.emit("connection", "a user connected");
 
-  // Notify everyone when a user leaves
+  //  user leaves
   socket.on("disconnect", () => {
     io.emit("connection", "a user disconnected");
   });
@@ -26,7 +26,6 @@ io.on("connection", (socket) => {
   });
 
   // Typing Functionality
-  // Broadcast "{user} is typing" to everyone else
   socket.on("typing", (data) => {
     socket.broadcast.emit("display typing", data);
   });
